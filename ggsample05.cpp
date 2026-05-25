@@ -54,8 +54,10 @@ int GgApp::main(int argc, const char* const* argv)
   // 頂点配列オブジェクトの作成
   const auto vao{ createObject(vertices, p0, lines, e) };
 
-  // 追加コード
-  // p1 用の頂点バッファオブジェクトを追加
+  
+  // 課題用追加コード(開始)
+
+  // p1用の頂点バッファオブジェクトを追加
   glBindVertexArray(vao);
   
   GLuint vbo1;
@@ -63,13 +65,15 @@ int GgApp::main(int argc, const char* const* argv)
   glBindBuffer(GL_ARRAY_BUFFER, vbo1);
   glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat[3]) * vertices, p1, GL_STATIC_DRAW);
   
-  // ggsample05.vert の layout(location = 1) in vec4 p1; に対応
+  // ggsample05.vertの「layout(location = 1) in vec4 p1;」に対応
   glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
   glEnableVertexAttribArray(1);
   
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
-  //
+
+  // 課題用追加コード(終了)
+
 
   // 平行移動の経路
   static const float route[][3]
