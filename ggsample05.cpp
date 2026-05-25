@@ -52,10 +52,24 @@ int GgApp::main(int argc, const char* const* argv)
   lookat(mv, 3.0f, 4.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
   // 頂点配列オブジェクトの作成
-  // 以前のコード
-  // const auto vao{ createObject(vertices, p0, lines, e) };
+  const auto vao{ createObject(vertices, p0, lines, e) };
+
   // 追加コード
-  const auto vao{ createObject(vertices, p0, p1, lines, e) };
+  // p1 用の頂点バッファオブジェクトを追加
+  glBindVertexArray(vao);
+  
+  GLuint vbo1;
+  glGenBuffers(1, &vbo1);
+  glBindBuffer(GL_ARRAY_BUFFER, vbo1);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat[3]) * vertices, p1, GL_STATIC_DRAW);
+  
+  // ggsample05.vert の layout(location = 1) in vec4 p1; に対応
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+  glEnableVertexAttribArray(1);
+  
+  glBindVertexArray(0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+  //
 
   // 平行移動の経路
   static const float route[][3]
