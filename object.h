@@ -7,4 +7,13 @@
 //   index: 線分の頂点インデックス
 //   戻り値: 作成された頂点配列オブジェクト名
 //
-extern GLuint createObject(GLuint vertices, const GLfloat(*position)[3], GLuint lines, const GLuint* index);
+// 以前のコード
+// extern GLuint createObject(GLuint vertices, const GLfloat(*position)[3], GLuint lines, const GLuint* index);
+// 追加コード
+extern GLuint createObject(
+    GLuint vertices,
+    const GLfloat(*position0)[3],
+    const GLfloat(*position1)[3],
+    GLuint lines,
+    const GLuint* index
+);
