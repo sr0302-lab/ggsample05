@@ -13,7 +13,7 @@ using namespace gg;
 //   戻り値: 作成された頂点配列オブジェクト名
 //
 // 以前のコード
-GLuint createObject(GLuint vertices, const GLfloat(*position)[3], GLuint lines, const GLuint* index)
+// GLuint createObject(GLuint vertices, const GLfloat(*position)[3], GLuint lines, const GLuint* index)
 // 追加コード
 GLuint createObject(
     GLuint vertices,
