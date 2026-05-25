@@ -52,7 +52,10 @@ int GgApp::main(int argc, const char* const* argv)
   lookat(mv, 3.0f, 4.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
   // 頂点配列オブジェクトの作成
-  const auto vao{ createObject(vertices, p0, lines, e) };
+  // 以前のコード
+  // const auto vao{ createObject(vertices, p0, lines, e) };
+  // 追加コード
+  const auto vao{ createObject(vertices, p0, p1, lines, e) };
 
   // 平行移動の経路
   static const float route[][3]
